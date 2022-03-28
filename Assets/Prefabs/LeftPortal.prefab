@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7920295073780529563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6245253551464166970}
   - component: {fileID: 6245253551464166973}
   - component: {fileID: 479483414967004466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftPortal
   m_TagString: LeftPortal
   m_Icon: {fileID: 0}

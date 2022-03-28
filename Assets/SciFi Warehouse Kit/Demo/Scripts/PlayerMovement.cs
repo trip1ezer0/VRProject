@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float horizontalLookSpeed;
+    public GameObject leftController;
+    public GameObject rightController;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -42,14 +45,19 @@ public class PlayerMovement : MonoBehaviour
         float y = Input.GetAxis("HorizontalLook");
         float z = Input.GetAxis("Vertical");
 
-
+        // Left stick movement
         Vector3 motion = Camera.main.transform.right * x + Camera.main.transform.forward * z;
         motion.y = 0f;
         controller.Move(motion * speed * Time.deltaTime);
 
+        // Looking rotation (work in progress)
+        //transform.forward = ((leftController.transform.TransformDirection(Vector3.forward).normalized + rightController.transform.TransformDirection(Vector3.forward).normalized) / 2).normalized;
+
+        // Right stick camera movement
         Vector3 changeView = new Vector3(0f, y * horizontalLookSpeed, 0f);
         transform.eulerAngles += changeView;
 
+        // Jumping
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -58,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        // Footstep sound effect
         if ((Mathf.Abs(Input.GetAxis("Horizontal")) > 0f || Mathf.Abs(Input.GetAxis("Vertical")) > 0f) && isGrounded)
         {
             nextFootstep -= Time.deltaTime;
