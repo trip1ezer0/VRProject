@@ -34,11 +34,11 @@ public class BorderColor : MonoBehaviour
         {
             if (!redReverse)
             {
-                border.SetColor("_EmissionColor", new Color(border.GetColor("_EmissionColor").r + colorSpeed, 0f, 1f));
+                border.SetColor("_EmissionColor", new Color(border.GetColor("_EmissionColor").r + colorSpeed/10f, 0f, 1f));
             }
             else
             {
-                border.SetColor("_EmissionColor", new Color(1f, 0f, border.GetColor("_EmissionColor").b - colorSpeed));
+                border.SetColor("_EmissionColor", new Color(1f, 0f, border.GetColor("_EmissionColor").b - colorSpeed / 10f));
             }
 
             if (border.GetColor("_EmissionColor").r >= 1f && !redReverse)
@@ -56,11 +56,11 @@ public class BorderColor : MonoBehaviour
         {
             if (!greenReverse)
             {
-                border.SetColor("_EmissionColor", new Color(1f, border.GetColor("_EmissionColor").g + colorSpeed, 0f));
+                border.SetColor("_EmissionColor", new Color(1f, border.GetColor("_EmissionColor").g + colorSpeed / 10f, 0f));
             }
             else
             {
-                border.SetColor("_EmissionColor", new Color(border.GetColor("_EmissionColor").r - colorSpeed, 1f, 0f));
+                border.SetColor("_EmissionColor", new Color(border.GetColor("_EmissionColor").r - colorSpeed / 10f, 1f, 0f));
             }
 
             if (border.GetColor("_EmissionColor").g >= 1f && !greenReverse)
@@ -78,11 +78,11 @@ public class BorderColor : MonoBehaviour
         {
             if (!blueReverse)
             {
-                border.SetColor("_EmissionColor", new Color(0f, 1f, border.GetColor("_EmissionColor").b + colorSpeed));
+                border.SetColor("_EmissionColor", new Color(0f, 1f, border.GetColor("_EmissionColor").b + colorSpeed / 10f));
             }
             else
             {
-                border.SetColor("_EmissionColor", new Color(0f, border.GetColor("_EmissionColor").g - colorSpeed, 1f));
+                border.SetColor("_EmissionColor", new Color(0f, border.GetColor("_EmissionColor").g - colorSpeed / 10f, 1f));
             }
 
             if (border.GetColor("_EmissionColor").b >= 1f && !blueReverse)

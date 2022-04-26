@@ -179,6 +179,7 @@ public class ShootPortal : MonoBehaviour
                     curr = Instantiate(portal, point, rot);
                     Destroy(prev);
                     StartCoroutine(Cooldown());
+                    GetComponent<AudioSource>().Play();
                     prev = curr;
                 }
             }

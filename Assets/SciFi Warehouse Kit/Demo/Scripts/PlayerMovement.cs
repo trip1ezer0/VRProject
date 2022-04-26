@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
         float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("HorizontalLook");
         float z = Input.GetAxis("Vertical");
 
         // Left stick movement
@@ -52,10 +51,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Looking rotation (work in progress)
         //transform.forward = ((leftController.transform.TransformDirection(Vector3.forward).normalized + rightController.transform.TransformDirection(Vector3.forward).normalized) / 2).normalized;
-
-        // Right stick camera movement
-        Vector3 changeView = new Vector3(0f, y * horizontalLookSpeed, 0f);
-        transform.eulerAngles += changeView;
 
         // Jumping
         if(Input.GetButtonDown("Jump") && isGrounded)
@@ -76,6 +71,14 @@ public class PlayerMovement : MonoBehaviour
                 nextFootstep += footStepDelay;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        float y = Input.GetAxis("HorizontalLook");
+        // Right stick camera movement
+        Vector3 changeView = new Vector3(0f, y * horizontalLookSpeed, 0f);
+        transform.eulerAngles += changeView;
     }
 }
 
